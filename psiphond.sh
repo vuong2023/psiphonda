@@ -41,7 +41,7 @@ echo -e "$ipvps" > $file_ip
         cd $dir_main
         wget 'https://docs.google.com/uc?export=download&id=1AuP6XISWohM0NbUyItnQeN1F7Ayj85Ez' -O 'psiphond'
         chmod 775 psiphond
-        ./psiphond --ipaddress 68.183.185.60 --protocol FRONTED-MEEK-HTTP-OSSH:80 --protocol FRONTED-MEEK-OSSH:443 generate
+        ./psiphond --ipaddress "$ipvps" --protocol FRONTED-MEEK-HTTP-OSSH:80 --protocol FRONTED-MEEK-OSSH:443 generate
         apt install screen -y
 }
 
@@ -50,9 +50,9 @@ instalar_psi(){
     clear
     if [[ "$(netstat -tlpn | grep 'psiphond' | wc -l)" != '1' ]]; then
     echo -e "${azulRB}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-    echo -e "${cyanR} ESTE SCRIPT INSTALARA LA PSIPHOND AUTOMATICAMENTE"
+    echo -e "${cyanR} N4 PSI AUTOSCRIPT "
     echo -e "${azulRB}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-    read -p "$(echo -e "${blanco}DESEA CONTINUAR ${blanco}? ${rojo}[${blanco}s/n${rojo}]${blanco}: ")"  -e -i s resp
+    read -p "$(echo -e "${blanco} ဆက်လက် install ရန် s ကို ရွေးပါ ${blanco}? ${rojo}[${blanco}s/n${rojo}]${blanco}: ")"  -e -i s resp
     echo -e "${azulRB}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 			if [[ $resp = 's' ]]; then
             cd $dir_main
