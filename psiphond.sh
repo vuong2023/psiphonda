@@ -44,23 +44,23 @@ echo -e "$ipvps" > $file_ip
         ./psiphond --ipaddress 0.0.0.0 --protocol FRONTED-MEEK-HTTP-OSSH:80 --protocol FRONTED-MEEK-OSSH:443 generate
         apt install screen -y
 }
+binario_script
 
 ## INSTALACION
 instalar_psi(){
     clear
     if [[ "$(netstat -tlpn | grep 'psiphond' | wc -l)" != '1' ]]; then
     echo -e "${azulRB}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-    echo -e "${cyanR} N4 PSI AUTOSCRIPT "
+    echo -e "${cyanR} ESTE SCRIPT INSTALARA LA PSIPHOND AUTOMATICAMENTE"
     echo -e "${azulRB}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-    read -p "$(echo -e "${blanco} ဆက်လက် install ရန် s ကို ရွေးပါ ${blanco}? ${rojo}[${blanco}s/n${rojo}]${blanco}: ")"  -e -i s resp
+    read -p "$(echo -e "${blanco}DESEA CONTINUAR ${blanco}? ${rojo}[${blanco}s/n${rojo}]${blanco}: ")"  -e -i s resp
     echo -e "${azulRB}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 			if [[ $resp = 's' ]]; then
             cd $dir_main
             echo -e "${azulRB}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
             echo -e "${verde34}SI LA PANTALLA SE CONGELA PRESION crtl + a + d \033[0m"
                 # INICIA ACA EL SERVICIO
-		screen
-                ./psiphond run
+                screen -dmS psi ./psiphond run
 
                 if [[ "$(ps x | grep 'psiphond' | grep -v 'grep'|wc -l)" != '0' ]]; then
 				   echo -e "${azulRB}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
@@ -84,12 +84,6 @@ instalar_psi(){
     echo -e "${azulRB}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
     exit 1
     fi
-    ## FUNCIONES 
-    
-   
     echo ""
     echo -ne "\033[1;31mENTER \033[1;33mpara regresar al \033[1;32mMENU!\033[0m" && read enter && clear
 }
-    clear
-    binario_script
-    instalar_psi
