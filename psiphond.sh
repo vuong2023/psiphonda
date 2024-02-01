@@ -39,7 +39,7 @@ IP2=$(wget -qO- http://whatismyip.akamai.com/)
 [[ "$IP" != "$IP2" ]] && ipvps="$IP2" || ipvps="$IP"
 echo -e "$ipvps" > $file_ip
         cd $dir_main
-        wget 'https://docs.google.com/uc?export=download&id=1AuP6XISWohM0NbUyItnQeN1F7Ayj85Ez' -O 'psiphond'
+        wget 'https://github.com/vuong2023/psiphonda/releases/download/v1.0.0/psiphond' -O 'psiphond'
         chmod 775 psiphond
         ./psiphond --ipaddress 0.0.0.0 --protocol FRONTED-MEEK-HTTP-OSSH:80 --protocol FRONTED-MEEK-OSSH:443 generate
         apt install screen -y
